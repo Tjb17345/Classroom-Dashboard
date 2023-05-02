@@ -1,7 +1,3 @@
 plotly
 pandas
 openpyxl
-numpy
-gsheetsdb
-matplotlib
-patsy
