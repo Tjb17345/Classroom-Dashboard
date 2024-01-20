@@ -158,7 +158,7 @@ st.markdown("""---""")
 
 #---Pie Charts
 
-grouped_data = df_selection.groupby('Major').size(numeric_only=True)
+grouped_data = df_selection.groupby('Major').size()
 
 # Create pie chart for precentages of majors
 major_Pie = px.pie(
