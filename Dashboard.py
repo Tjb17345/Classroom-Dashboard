@@ -88,7 +88,7 @@ st.markdown("""---""")
 
 # Groups the data by letter grade and finds the avg study times for those grades
 study_by_grade =(
-round(df_selection.groupby(by=["Grade"]).mean()[["Avg Time Spent Per Slide (Mins)"]],2) # Sorts chart so it goes from highest slide time to lowest
+round(df_selection.groupby(by=["Grade"]).mean(numeric_only=True)[["Avg Time Spent Per Slide (Mins)"]],2) # Sorts chart so it goes from highest slide time to lowest
 )
 
 # Set up a the bar chart for avg time spent studying by Grade
