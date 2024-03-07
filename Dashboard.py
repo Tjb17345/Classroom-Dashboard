@@ -133,7 +133,7 @@ fig_Slide_Time = px.bar(
     y=slide_avgs,
     labels={'x': 'Slide Number', 'y': 'Minutes'},
     orientation="v",
-    title="<b>Avg Time Spent on Each Individual Slide</b>",
+    title="<b>Avg Time Spent on Each Slide</b>",
 )
 
 # Displays all labels on the y axis and increase font
@@ -180,7 +180,7 @@ major_Pie.update_traces(
     textinfo='percent+label'
 )
 
-# Create pie chart for precentages of letter grades
+# Create pie chart for percentages of letter grades
 grouped_data = df_selection.groupby('Grade').size()
 
 grade_Pie = px.pie(
