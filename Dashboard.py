@@ -4,7 +4,7 @@ import streamlit as st
 
 st.set_page_config(page_title="Classroom Dashboard", page_icon=":bar_chart:", layout="wide")
 
-# Enhances preformance by using a cache to prevent constant reloading of data
+# Enhances performance by using a cache to prevent constant reloading of data
 @st.cache_data
 def get_data_from_file():
 
@@ -91,7 +91,7 @@ study_by_grade =(
 round(df_selection.groupby(by=["Grade"]).mean(numeric_only=True)[["Avg Time Spent Per Slide (Mins)"]],2) # Sorts chart so it goes from highest slide time to lowest
 )
 
-# Set up a the bar chart for avg time spent studying by Grade
+# Set up a bar chart for avg time spent studying by Grade
 fig_Study_Grade = px.bar(
     study_by_grade,
     x="Avg Time Spent Per Slide (Mins)",
@@ -120,14 +120,14 @@ fig_Study_Grade.update_layout(
 # Create an empty list to store the slide averages
 slide_avgs =  []
 
-# Loop through each column in the dataframe and calculate its average if it contains "Slide #" in the title
+# Loop through each column in the data frame and calculate its average if it contains "Slide #" in the title
 for col in df_selection.columns:
     if 'Slide #' in col:
         slide_avg = round(df_selection[col].mean(),1)
         slide_avgs.append(slide_avg)
 
 
-# Set up a the bar chart for avg time spent on each slide
+# Set up a bar chart for avg time spent on each slide
 fig_Slide_Time = px.bar(
     x=[col for col in df_selection.columns if 'Slide #' in col],
     y=slide_avgs,
@@ -160,11 +160,11 @@ st.markdown("""---""")
 
 grouped_data = df_selection.groupby('Major').size()
 
-# Create pie chart for precentages of majors
+# Create pie chart for percentages of majors
 major_Pie = px.pie(
     values=grouped_data, names=grouped_data.index, 
     labels={'value': 'Percentage'}, 
-    title='Major Precentages',
+    title='Major Percentages',
     hole=0.4,
 )
 
